@@ -1,38 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
 .App {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
+}
+.site-header, 
+.nav-list {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+}
+.site-header {
+  background: #d3e0ea;
+}
+.site-header h1 {
+  margin: 0;
+  padding: 1rem 2.5rem;
+}
+.site-header h1:hover {
+  text-decoration: underline;
+}
+/* .main-nav  */
+.nav-list {
+  margin: 0;
+}
+.nav-link {
+  display: inline-block;
+  padding: 2rem 3.5rem;
+  transition: all 0.2s ease-in-out;
+}
+.nav-link:hover {
+  background: #276678;
+  color: white
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.card {
+  width: 25%;
+  min-height: 15rem;
+  border-radius: 1rem;
+  margin: 2rem;
+  box-shadow: 0 0 2rem hsla(246, 20%, 50%, 0.2);
+  overflow: hidden;
+}
+.card a {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  padding: 2rem 3rem;
 }
-
-.App-link {
-  color: #61dafb;
+.card a:hover {
+  background-color: hsla(246, 20%, 50%, 0.1);
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.loader {
+  width: 50%;
+  margin: 5rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 1rem;
+}
+footer {
+  background: #d3e0ea;
+  margin-top: auto;
 }

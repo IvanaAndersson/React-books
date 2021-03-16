@@ -5,9 +5,31 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font: 18px/1.5 'Montserrat', sans-serif;;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: #0a043c;
+  background-color: #f6f5f5;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #0a043c;
+}
+
+a:visited {
+  color: inherit;
+}
+a:active {
+  color: inherit;
 }
