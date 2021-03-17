@@ -12,6 +12,17 @@ const App = () => {
     fetch('http://localhost:8000/books/'+id, {method: "DELETE"})
     setBooks(books.filter(book => book.id !== id));
   }
+  const handleAdd = (data) => {
+    fetch('http://localhost:8000/books', {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+
+    setBooks([ ...books, data])
+  }
 
   return (
     <Router>
@@ -20,6 +31,7 @@ const App = () => {
         <main className="container"> 
           <Switch>
             <Route path="/">
+              <AddNew handleAdd={handleAdd} />
               <BookList books={books} handleDelete={handleDelete} error={error}/>
             </Route>
           </Switch>
