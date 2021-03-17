@@ -6,6 +6,10 @@ const Book = ({id, title, imgPath, description, handleDelete}) => {
         <h2>{title} </h2>
       </header>
       <p>{description}</p>
+      <footer>
+        <button>Favorite</button>
+        <button onClick={()=>handleDelete(id)}>Delete</button>
+      </footer>
     </div>
   )
 }
