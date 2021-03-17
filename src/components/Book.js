@@ -1,13 +1,13 @@
-const Book = ({id, title, imgPath, description, handleDelete}) => {
+const Book = ({id, title, imgPath, description, isFavorite, handleUpdate, handleDelete}) => {
   return (
-    <div className="card">
+    <div className={`card ${isFavorite ? "favorite" : ""}`}>
       <img src={imgPath} alt="" />
       <header className="card-header"> 
         <h2>{title} </h2>
       </header>
       <p>{description}</p>
       <footer>
-        <button>Favorite</button>
+        <button onClick={()=>handleUpdate(id)}>Favorite</button>
         <button onClick={()=>handleDelete(id)}>Delete</button>
       </footer>
     </div>

@@ -8,10 +8,6 @@ import AddNew from "./components/AddNew";
 
 const App = () => {
   const {data: books, setData: setBooks, error} = useFetch('http://localhost:8000/books')
-  const handleDelete = (id) => {
-    fetch('http://localhost:8000/books/'+id, {method: "DELETE"})
-    setBooks(books.filter(book => book.id !== id));
-  }
   const handleAdd = (data) => {
     fetch('http://localhost:8000/books', {
       method: "POST",
@@ -20,8 +16,26 @@ const App = () => {
       },
       body: JSON.stringify(data)
     })
-
+    
     setBooks([ ...books, data])
+  }
+  const handleUpdate = (id) => {
+    const bookToUpdate = books.filter(book => book.id === id)
+    const updBook = { ...bookToUpdate[0], isFavorite: !bookToUpdate[0].isFavorite }
+    fetch('http://localhost:8000/books/'+id, {
+      method: "PUT",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(updBook)
+    })
+    setBooks(books.map((book) =>
+      book.id === id ? { ...book, isFavorite: updBook.isFavorite } : book
+    ));
+  }
+  const handleDelete = (id) => {
+    fetch('http://localhost:8000/books/'+id, {method: "DELETE"})
+    setBooks(books.filter(book => book.id !== id));
   }
 
   return (
@@ -32,7 +46,7 @@ const App = () => {
           <Switch>
             <Route path="/">
               <AddNew handleAdd={handleAdd} />
-              <BookList books={books} handleDelete={handleDelete} error={error}/>
+              <BookList books={books} handleUpdate={handleUpdate} handleDelete={handleDelete} error={error}/>
             </Route>
           </Switch>
         </main>
