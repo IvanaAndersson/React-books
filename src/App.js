@@ -6,23 +6,25 @@ import BookList from './components/BookList';
 import useFetch from './hooks/useFetch'
 import AddNew from "./components/AddNew";
 
+const apiURL = "http://localhost:8000/books"
+
 const App = () => {
-  const {data: books, setData: setBooks, error} = useFetch('http://localhost:8000/books')
+  const {data: books, setData: setBooks, error} = useFetch(apiURL)
   const handleAdd = (data) => {
-    fetch('http://localhost:8000/books', {
+    fetch(apiURL, {
       method: "POST",
       headers: {
         "Content-type": "application/json"
       },
       body: JSON.stringify(data)
     })
-    
+    console.log(data);
     setBooks([ ...books, data])
   }
   const handleUpdate = (id) => {
     const bookToUpdate = books.filter(book => book.id === id)
     const updBook = { ...bookToUpdate[0], isFavorite: !bookToUpdate[0].isFavorite }
-    fetch('http://localhost:8000/books/'+id, {
+    fetch(`${apiURL}/${id}`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json"
@@ -34,7 +36,7 @@ const App = () => {
     ));
   }
   const handleDelete = (id) => {
-    fetch('http://localhost:8000/books/'+id, {method: "DELETE"})
+    fetch(`${apiURL}/${id}`, {method: "DELETE"})
     setBooks(books.filter(book => book.id !== id));
   }
 

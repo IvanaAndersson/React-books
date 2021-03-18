@@ -61,7 +61,8 @@ main {
   align-items: center;
   padding: 2rem 3rem;
 }
-.card:hover {
+.card:hover,
+.card.favorite:hover {
   background-color: hsla(246, 20%, 50%, 0.1);
 }
 .card.favorite {
