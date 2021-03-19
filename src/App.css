@@ -38,35 +38,36 @@ main {
   transition: all 0.2s ease-in-out;
 }
 .nav-link:hover {
-  background: #276678;
-  color: white
+  background: hsl(209, 90%, 19%);;
+  color: aliceblue
 }
-.container {
+.page-header {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-.card {
-  width: 25%;
-  min-height: 15rem;
-  border-radius: 0.5rem;
-  margin: 2rem;
-  box-shadow: 0 0 2rem hsla(246, 20%, 50%, 0.2);
-  overflow: hidden;
-}
-.card a {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding: 2rem 3rem;
+  padding: 1em 3.2em;
 }
-.card:hover,
-.card.favorite:hover {
-  background-color: hsla(246, 20%, 50%, 0.1);
+.page-header h2 {
+  font-size: 2em;
+  margin: 0.5em 0;
 }
-.card.favorite {
-  background-color: hsla(335, 69%, 42%, 0.2);
+.add-book-button,
+.submit-button {
+  font-size: 1em;
+  background: hsl(209, 90%, 19%);
+  color: aliceblue;
+  padding: 1em 1.5em;
+  border-radius: 0.3rem;
+  font-family: inherit;
+  box-shadow: 0 0 2rem hsla(209, 90%, 20%, 0.2);
+}
+.add-book-button:hover,
+.add-book-button:focus,
+.submit-button:hover,
+.submit-button:focus {
+  background: hsl(209, 100%, 15%);
+  box-shadow: 0 0 1.5rem hsla(209, 90%, 20%, 0.5);
+
 }
 .loader {
   width: 50%;
@@ -75,7 +76,142 @@ main {
   background: #fff;
   border-radius: 1rem;
 }
-footer {
+.book-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+/* styles for the book cards start here */
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  min-height: 10rem;
+  border-radius: 0.5rem;
+  padding: 1em 0.5em 0 0.5em;
+  margin: 2rem;
+  box-shadow: 0 0 2rem hsla(246, 20%, 50%, 0.2);
+  position: relative;
+}
+.card:hover,
+.card.favorite:hover {
+  background-color: hsla(246, 20%, 50%, 0.1);
+}
+.img-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+.img-wrapper:after {
+  display: block;
+  content: '';
+  padding-top: 100%;
+}
+.img-wrapper img {
+  width: auto;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.card-header h2 {
+  margin: 0.5em 0;
+}
+.card p {
+  margin: 0.5em 0 1em 0;
+}
+.card footer {
+  margin-top: auto;
+}
+.card a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 3rem;
+}
+.favorite-button,
+.delete-button {
+  position: absolute;
+  right: 1em;
+  border-radius: 50%;
+}
+.delete-button {
+  width: 3em;
+  height: 3em;
+  top: 1em;
+}
+.delete-button:before,
+.delete-button:after {
+  display: inline-block;
+  content: "";
+  width: 2px;
+  height: 100%;
+  background: rgb(212, 0, 0);
+}
+.delete-button:before {
+  transform: rotate(45deg);
+  position: relative;
+    left: 5px;
+}
+.delete-button:after {
+  transform: rotate(-45deg);
+}
+.delete-button:hover,
+.delete-button:focus {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+.favorite-button {
+  width: 10%;
+  top: 5em;
+  padding: 0;
+}
+.favorite-button svg {
+  color:rgb(97, 33, 181)
+}
+.favorite-button:hover svg,
+.favorite-button:focus svg {
+  color:rgb(164, 101, 247)
+
+}
+.card.favorite .favorite-button {
+  background-color: hsla(335, 89%, 49%, 0.2);
+}
+/* styles for the book cards end here */
+
+
+/* styles for the Add book form starts here */
+.add-book-form {
+  width: 90%;
+  margin: 0 auto;
+  background: white;
+  z-index: 100;
+  padding: 2em;
+  font-size: 1.2em;
+}
+.add-book-form fieldset {
+  border-color: hsl(209, 90%, 19%);
+  padding: 2em;
+}
+.add-book-form legend {
+  text-align: left;
+}
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2em;
+}
+.input-wrapper label {
+  text-align: left;
+}
+.input-wrapper input {
+  padding: 1rem;
+}
+
+/* styles for the Add book form ends here */
+
+
+.site-footer {
   background: #d3e0ea;
   margin-top: auto;
 }
