@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import './App.css';
 import Header from "./components/Header"
@@ -9,6 +10,7 @@ import AddNew from "./components/AddNew";
 const apiURL = "http://localhost:8000/books"
 
 const App = () => {
+  const [showAddBook, setShowAddBook] = useState(false)
   const {data: books, setData: setBooks, error} = useFetch(apiURL)
   const handleAdd = (data) => {
     fetch(apiURL, {
@@ -47,7 +49,13 @@ const App = () => {
         <main className="container"> 
           <Switch>
             <Route path="/">
-              <AddNew handleAdd={handleAdd} />
+              <section className="page-header">
+                <h2>All Books</h2>
+                <button 
+                  className="btn add-book-button" 
+                  onClick={() => setShowAddBook(!showAddBook)}>Add a New Book</button>
+              </section>
+              {showAddBook && <AddNew handleAdd={handleAdd} />}
               <BookList books={books} handleUpdate={handleUpdate} handleDelete={handleDelete} error={error}/>
             </Route>
           </Switch>
