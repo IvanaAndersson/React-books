@@ -12,19 +12,18 @@ const AddNew = ({ handleAdd }) => {
     setOverview('')
   }
   return (
-    <form onSubmit={handleSubmit}>  
+    <form className="add-book-form" onSubmit={handleSubmit}>  
       <fieldset>
         <legend>Add a New Book</legend>
-        <div>
+        <div className="input-wrapper">
           <label htmlFor="">Title</label>
           <input type="text" required value={title} onChange={(e)=>setTitle(e.target.value)}/>
         </div>
-        <div>
+        <div className="input-wrapper">
           <label htmlFor="">Overview</label>
-          <input type="text" required value={overview} onChange={(e)=>setOverview(e.target.value)}/>
+          <textarea required value={overview} onChange={(e)=>setOverview(e.target.value)}/>
         </div>
-        <p>{title}</p>
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" className="btn submit-button" />
       </fieldset>
     </form>
   )
