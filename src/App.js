@@ -6,6 +6,7 @@ import Footer from "./components/Footer"
 import BookList from './components/BookList';
 import useFetch from './hooks/useFetch'
 import AddNew from "./components/AddNew";
+import PageHeader from './components/PageHeader';
 
 const apiURL = "http://localhost:8000/books"
 
@@ -48,13 +49,8 @@ const App = () => {
         <Header /> 
         <main className="container"> 
           <Switch>
-            <Route path="/">
-              <section className="page-header">
-                <h2>All Books</h2>
-                <button 
-                  className="btn add-book-button" 
-                  onClick={() => setShowAddBook(!showAddBook)}>Add a New Book</button>
-              </section>
+            <Route path="/" exact>
+              <PageHeader showAddBook={showAddBook} setShowAddBook={setShowAddBook} />
               {showAddBook && <AddNew handleAdd={handleAdd} />}
               <BookList books={books} handleUpdate={handleUpdate} handleDelete={handleDelete} error={error}/>
             </Route>

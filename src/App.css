@@ -45,7 +45,8 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1em 3.2em;
+  width: 90%;
+  margin: 2em auto;
 }
 .page-header h2 {
   font-size: 2em;
@@ -123,13 +124,6 @@ main {
 .card footer {
   margin-top: auto;
 }
-.card a {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem 3rem;
-}
 .favorite-button,
 .delete-button {
   position: absolute;
@@ -137,7 +131,7 @@ main {
   border-radius: 50%;
 }
 .delete-button {
-  width: 3em;
+  width: 4em;
   height: 3em;
   top: 1em;
 }
@@ -175,14 +169,14 @@ main {
 
 }
 .card.favorite .favorite-button {
-  background-color: hsla(335, 89%, 49%, 0.2);
+  background-color: rgba(97, 33, 181, 0.7);
 }
 /* styles for the book cards end here */
 
 
 /* styles for the Add book form starts here */
 .add-book-form {
-  width: 90%;
+  width: 85%;
   margin: 0 auto;
   background: white;
   z-index: 100;
