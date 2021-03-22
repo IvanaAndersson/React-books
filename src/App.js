@@ -8,6 +8,7 @@ import useFetch from './hooks/useFetch'
 import AddNew from "./components/AddNew";
 import PageHeader from './components/PageHeader';
 import BookDescription from './components/BookDescription';
+import NotFound from './components/NotFound';
 
 const apiURL = "http://localhost:8000/books"
 
@@ -57,6 +58,9 @@ const App = () => {
             </Route>
             <Route path="/book/:id">
               <BookDescription />
+            </Route>
+            <Route path="*">
+              <NotFound />
             </Route>
           </Switch>
         </main>
