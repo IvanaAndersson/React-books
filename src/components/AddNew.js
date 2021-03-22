@@ -17,11 +17,19 @@ const AddNew = ({ handleAdd }) => {
         <legend>Add a New Book</legend>
         <div className="input-wrapper">
           <label htmlFor="">Title</label>
-          <input type="text" required value={title} onChange={(e)=>setTitle(e.target.value)}/>
+          <input 
+            type="text" 
+            required 
+            value={title} 
+            onChange={(e)=>setTitle(e.target.value)}/>
         </div>
         <div className="input-wrapper">
           <label htmlFor="">Overview</label>
-          <textarea required value={overview} onChange={(e)=>setOverview(e.target.value)}/>
+          <textarea 
+            rows="10"
+            required 
+            value={overview} 
+            onChange={(e)=>setOverview(e.target.value)}/>
         </div>
         <input type="submit" value="Submit" className="btn submit-button" />
       </fieldset>

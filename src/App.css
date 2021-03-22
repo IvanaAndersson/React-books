@@ -105,7 +105,7 @@ main {
 .img-wrapper:after {
   display: block;
   content: '';
-  padding-top: 100%;
+  padding-top: 80%;
 }
 .img-wrapper img {
   width: auto;
