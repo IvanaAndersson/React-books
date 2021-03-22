@@ -7,6 +7,7 @@ import BookList from './components/BookList';
 import useFetch from './hooks/useFetch'
 import AddNew from "./components/AddNew";
 import PageHeader from './components/PageHeader';
+import BookDescription from './components/BookDescription';
 
 const apiURL = "http://localhost:8000/books"
 
@@ -53,6 +54,9 @@ const App = () => {
               <PageHeader showAddBook={showAddBook} setShowAddBook={setShowAddBook} />
               {showAddBook && <AddNew handleAdd={handleAdd} />}
               <BookList books={books} handleUpdate={handleUpdate} handleDelete={handleDelete} error={error}/>
+            </Route>
+            <Route path="/book/:id">
+              <BookDescription />
             </Route>
           </Switch>
         </main>
