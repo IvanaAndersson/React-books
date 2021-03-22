@@ -139,21 +139,23 @@ main {
 .delete-button:after {
   display: inline-block;
   content: "";
-  width: 2px;
+  width: 3px;
   height: 100%;
-  background: rgb(212, 0, 0);
+  background: rgb(255, 0, 0);
 }
 .delete-button:before {
   transform: rotate(45deg);
   position: relative;
-    left: 5px;
+    left: 6px;
 }
 .delete-button:after {
   transform: rotate(-45deg);
 }
-.delete-button:hover,
-.delete-button:focus {
-  background-color: rgba(255, 255, 255, 0.9);
+.delete-button:hover:before,
+.delete-button:focus:before,
+.delete-button:hover:after,
+.delete-button:focus:after {
+  background: rgb(255, 123, 123);
 }
 .favorite-button {
   width: 10%;
@@ -167,9 +169,6 @@ main {
 .favorite-button:focus svg {
   color:rgb(164, 101, 247)
 
-}
-.card.favorite .favorite-button {
-  background-color: rgba(97, 33, 181, 0.7);
 }
 /* styles for the book cards end here */
 
