@@ -15,29 +15,31 @@ const apiURL = "http://localhost:8000/books"
 const App = () => {
   const [showAddBook, setShowAddBook] = useState(false)
   const {data: books, setData: setBooks, error} = useFetch(apiURL)
-  const handleAdd = (data) => {
-    fetch(apiURL, {
+  const handleAdd = async (data) => {
+    const response = await fetch(apiURL, {
       method: "POST",
       headers: {
         "Content-type": "application/json"
       },
       body: JSON.stringify(data)
     })
-    console.log(data);
-    setBooks([ ...books, data])
+    const dataFromResponse = await response.json();
+    setBooks([ ...books, dataFromResponse])
+    
   }
-  const handleUpdate = (id) => {
+  const handleUpdate = async (id) => {
     const bookToUpdate = books.filter(book => book.id === id)
     const updBook = { ...bookToUpdate[0], isFavorite: !bookToUpdate[0].isFavorite }
-    fetch(`${apiURL}/${id}`, {
+    const response = await fetch(`${apiURL}/${id}`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json"
       },
       body: JSON.stringify(updBook)
     })
+    const dataFromResponse = await response.json();
     setBooks(books.map((book) =>
-      book.id === id ? { ...book, isFavorite: updBook.isFavorite } : book
+      book.id === id ? { ...book, isFavorite: dataFromResponse.isFavorite } : book
     ));
   }
   const handleDelete = (id) => {
